@@ -1,4 +1,6 @@
+import { HeroService } from './../../../services/hero.service';
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _heroService: HeroService, private router: Router) { }
 
   ngOnInit() {
   }
 
+  search(text: string) {
+    this.router.navigate(['/heroes-search'], { queryParams: { text : text} });
+  }
 }

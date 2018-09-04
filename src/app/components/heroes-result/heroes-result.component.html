@@ -1,0 +1,25 @@
+<div class="container pt-5">
+  <!-- 
+  <h1>Resultados</h1>
+  <hr/>
+  <div class="row" *ngFor="let hero of heroesArray; let i = index" [class.bg-light]="i % 2 == 0">
+    <div class="col-12 py-3">
+        {{ hero.nombre }}
+    </div>
+  </div>
+  -->
+
+
+  <h1>Buscando <small>{{ termino }}</small></h1>
+    <hr>
+    <ng-template #noResults>
+      <div class="row bg-light py-3 animated fadeIn fast">
+        <div class="col">
+            <p class="text-center my-0">No se encontraron resultados que coincidan con el termino&quot;{{ termino }} &quot;</p>
+        </div>
+      </div> 
+    </ng-template>
+    <div class="card-columns" *ngIf="heroes.length > 0; else noResults;">
+        <app-hero-item [hero]="hero" [index]="i" *ngFor="let hero of heroes; let i = index" ></app-hero-item>
+    </div>
+</div>
